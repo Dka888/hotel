@@ -1,0 +1,16 @@
+:root {
+  --main-color: #f8f6f4;
+  --text-color: rgb(97, 62, 43);
+}
+
+body {
+  background-color: var(--main-color);
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1650px;
+}
+
+#app {
+  margin: 0;
+  padding: 0;
+}

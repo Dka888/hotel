@@ -1,0 +1,82 @@
+.menu {
+  display: none;
+  @media (min-width: 600px) {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+.menu__item {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 2rem;
+  height: 100%;
+  position: relative;
+  padding: 10px 0;
+}
+
+.menu__item:hover::before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 2px;
+  background-color: var(--text-color);
+  animation: menuAnimationItem 0.7s ease-in-out;
+}
+
+@keyframes menuAnimationItem {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.menuPhone {
+  margin: auto;
+  width: 100px;
+  text-align: center;
+
+  @media (min-width: 600px) {
+    display: none;
+  }
+}
+.menuPhone__items {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: var(--main-color);
+  font-size: 2rem;
+  width: 100vw;
+  height: 100%vh;
+  padding: 2rem;
+  color: var(--text-color);
+  animation: menuSlider 1s ease-in-out;
+}
+
+.menuPhone__item {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+@keyframes menuSlider {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.closeMenu {
+  position: absolute;
+  left: 75%;
+  top: 15px;
+}
