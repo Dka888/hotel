@@ -1,6 +1,7 @@
 <script setup>
 import { useCartStore } from '@/stores/CartStore'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps({
   card: {
     type: Object,

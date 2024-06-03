@@ -1,7 +1,6 @@
 <script setup>
 import { useStore } from '@/stores/useStore'
 import CardComponent from '../components/CardComponent.vue'
-import { ref } from 'vue'
 
 const { cards } = useStore()
 </script>
