@@ -1,59 +1,46 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { useCartStore } from '@/stores/CartStore'
 
 const props = defineProps({
-  cards: {
-    type: Array,
+  card: {
+    type: Object,
     required: true
   }
 })
 
-const addToCart = (card) => {}
+const { carts } = useCartStore()
+const addToCart = (card) => {
+  carts.push(card)
+}
 </script>
 
 <template>
-  <div class="card" v-for="card in cards" :key="card.id">
-    <div class="card__picture">
-      <img :src="card.image" :alt="card.title" />
-    </div>
-    <div class="card__info">
-      <h5 class="card__title">{{ card.title }}</h5>
-      <div class="card__addition">
-        <div style="height: 30px; display: flex">
-          <div><img src="../assets/star-active.svg" alt="star" /></div>
-          <div><img src="../assets/star-active.svg" alt="star" /></div>
-          <div><img src="../assets/star-active.svg" alt="star" /></div>
-          <div><img src="../assets/star-active.svg" alt="star" /></div>
-          <div><img src="../assets/star-active.svg" alt="star" /></div>
-        </div>
-        <div class="card__price">{{ card.price }} PLN</div>
+  <div class="card__picture">
+    <img :src="card.image" :alt="card.title" />
+  </div>
+  <div class="card__info">
+    <h5 class="card__title">{{ card.title }}</h5>
+    <div class="card__addition">
+      <div style="height: 30px; display: flex">
+        <div><img src="../assets/star-active.svg" alt="star" /></div>
+        <div><img src="../assets/star-active.svg" alt="star" /></div>
+        <div><img src="../assets/star-active.svg" alt="star" /></div>
+        <div><img src="../assets/star-active.svg" alt="star" /></div>
+        <div><img src="../assets/star-active.svg" alt="star" /></div>
       </div>
-      <RouterLink to="/booking">
-        <button class="card__button" v-onclick="addToCart(card)">Zarezerwuj</button>
-      </RouterLink>
+      <div class="card__price">{{ card.price }} PLN</div>
     </div>
+    <button class="card__button" v-on:click="addToCart(card)">Zarezerwuj</button>
   </div>
 </template>
 
 <style>
-.card {
-  width: 350px;
-  border: 1px solid white;
-  padding: 15px 10px 5px;
-  border-radius: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: white;
-  box-shadow: 10px 10px 10px;
-  height: 400px;
-}
-
 .card__picture {
   width: 100%;
 
   img {
     width: 100%;
+    height: 250px;
   }
 }
 
@@ -88,7 +75,8 @@ const addToCart = (card) => {}
   font-weight: 600;
 
   &:hover {
-    background-color: rgb(70, 150, 70);
+    background-color: rgb(75, 170, 75);
+    border-color: rgb(75, 170, 75);
   }
 }
 </style>

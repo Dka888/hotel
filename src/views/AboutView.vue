@@ -29,7 +29,7 @@
   background-image: linear-gradient(
     to right bottom,
     rgba(173, 230, 211, 0.3),
-    rgba(238, 208, 144, 0.3)
+    rgba(129, 236, 72, 0.3)
   );
   padding: 1rem 2rem;
   border-radius: 14px;

@@ -2,11 +2,12 @@
 import { RouterView, RouterLink } from 'vue-router'
 import MenuHeader from './components/MenuHeader.vue'
 import { ref, provide } from 'vue'
+import { useCartStore } from '../src/stores/CartStore'
 
 let view = ref('home')
 provide('view', view)
 
-let cartItems = 0
+const { carts } = useCartStore()
 </script>
 
 <template>
@@ -17,9 +18,9 @@ let cartItems = 0
     <div class="wrapper">
       <MenuHeader />
     </div>
-    <RouterLink to="/cart" style="position: relative">
+    <RouterLink to="/booking" style="position: relative">
       <div class="cartIcon"></div>
-      <div class="cartBadge" v-if="cartItems">{{ cartItems }}</div>
+      <div class="cartBadge" v-if="!!carts.length">{{ carts.length }}</div>
     </RouterLink>
     <div class="autorization">
       <RouterLink to="/log-in">
@@ -49,10 +50,10 @@ header {
   }
 }
 main {
-  background-image: url('./assets/background-hotel.jpg');
+  background-image: url('./assets/spa_background.jpeg');
   background-repeat: no-repeat;
-  background-position: contain;
-  background-position: top;
+  background-size: cover;
+  background-position: center;
   max-width: 100%;
   padding: auto;
 }

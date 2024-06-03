@@ -45,8 +45,8 @@ import { RouterLink } from 'vue-router'
   color: white;
   background-image: linear-gradient(
     to right bottom,
-    rgba(173, 230, 211, 0.3),
-    rgba(238, 208, 144, 0.3)
+    rgba(156, 224, 201, 0.3),
+    rgba(69, 134, 83, 0.3)
   );
   padding: 1rem;
   border-radius: 14px;

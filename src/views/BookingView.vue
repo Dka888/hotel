@@ -1,12 +1,14 @@
 <script setup>
-import CardComponent from '@/components/CardComponent.vue'
+import { useCartStore } from '@/stores/CartStore'
+
+const { carts } = useCartStore()
 </script>
 
 <template>
   <div class="book">
     <div class="panel__book">
       <div class="panel__card">
-        <CardComponent></CardComponent>
+        {{ carts }}
       </div>
       <div class="panel__calendar"></div>
     </div>
@@ -19,6 +21,8 @@ import CardComponent from '@/components/CardComponent.vue'
 .book {
   width: 100%;
   height: 100vh;
-  background-color: var(--text-color);
+  background-image: url('../assets/background-hotel.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>
