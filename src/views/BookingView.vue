@@ -4,6 +4,7 @@ import { useCartStore } from '@/stores/CartStore'
 const { carts } = useCartStore()
 
 const totalPrice = carts.reduce((acc, curr) => acc + curr.price, 0)
+const taxes = (totalPrice * 20) / 100
 </script>
 
 <template>
@@ -28,10 +29,34 @@ const totalPrice = carts.reduce((acc, curr) => acc + curr.price, 0)
 
     <div class="book__summary">
       <h2>Summary:</h2>
-
       <div style="display: flex; justify-content: space-between">
+        <h5>Price:</h5>
+        <h5>
+          {{ totalPrice }}
+        </h5>
+      </div>
+      <div style="display: flex; justify-content: space-between">
+        <h5>Taxes:</h5>
+        <h5>
+          {{ taxes }}
+        </h5>
+      </div>
+      <div style="display: flex; justify-content: space-between">
+        <h5>Invirenment fee:</h5>
+        <h5>50</h5>
+      </div>
+      <hr />
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          color: black;
+          font-weight: 900;
+          font-size: x-large;
+        "
+      >
         <h5>Total price:</h5>
-        <h5>{{ totalPrice }}</h5>
+        <h5>{{ totalPrice + taxes + 50 }}</h5>
       </div>
     </div>
   </div>
@@ -61,10 +86,9 @@ const totalPrice = carts.reduce((acc, curr) => acc + curr.price, 0)
   background-image: linear-gradient(to left, rgb(255, 255, 255, 0.3), rgb(144, 238, 144, 0.3));
   width: 75%;
   padding: 1rem;
-  margin: auto;
+  margin: 5px auto;
   border-radius: 14px;
   display: flex;
-  flex-grow: 2;
 }
 
 .panel__card {
@@ -75,9 +99,10 @@ const totalPrice = carts.reduce((acc, curr) => acc + curr.price, 0)
   border: var(--text-color) solid 1px;
   border-radius: 14px;
   padding: 0.25rem 1rem;
+  gap: 5px;
 
   @media (min-width: 600px) {
-    width: 700px;
+    width: 750px;
   }
 }
 
@@ -99,10 +124,10 @@ const totalPrice = carts.reduce((acc, curr) => acc + curr.price, 0)
 
 .book__summary {
   min-width: 300px;
-  padding: 0.25rem 1rem;
+  padding: 10px 20px;
   max-width: 500px;
   background-image: linear-gradient(to top, rgb(255, 255, 255, 0.3), rgb(0, 128, 0, 0.3));
-  max-height: 500px;
+  height: 350px;
   border-radius: 14px;
   color: var(--main-color);
   margin: 0 auto;
