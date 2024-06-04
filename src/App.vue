@@ -18,7 +18,7 @@ const { carts } = useCartStore()
     <div class="wrapper">
       <MenuHeader />
     </div>
-    <RouterLink to="/booking" style="position: relative">
+    <RouterLink to="/booking" style="position: relative; margin-right: 10px">
       <div class="cartIcon"></div>
       <div class="cartBadge" v-if="!!carts.length">{{ carts.length }}</div>
     </RouterLink>
@@ -77,6 +77,7 @@ main {
 .autorization__button {
   margin: 5px;
   padding: 5px 5px;
+  min-width: 65px;
   border-radius: 8px;
   color: var(--text-color);
   border: var(--text-color) 1px solid;

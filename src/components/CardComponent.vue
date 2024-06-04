@@ -11,7 +11,21 @@ const props = defineProps({
 
 const { carts } = useCartStore()
 const addToCart = (card) => {
-  carts.push(card)
+  if (carts.find((cart) => cart.title === card.title)) {
+    carts.map((cart) => {
+      if (cart.title === card.title) {
+        cart.quantity++
+        return cart
+      }
+      return cart
+    })
+  } else {
+    const newCart = {
+      ...card,
+      quantity: 1
+    }
+    carts.push(newCart)
+  }
 }
 </script>
 
